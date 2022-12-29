@@ -1,0 +1,100 @@
+.header {
+   position: absolute;
+   width: 100%;
+   top: 0;
+   left: 0;
+
+   &__wrapper {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 50;
+   }
+   &__body {
+      display: flex;
+      align-items: center;
+      padding: 5px 0;
+      min-height: 125px;
+   }
+   &__main {
+      display: flex;
+      align-items: center;
+      flex:  0 0 40%;
+   }
+   &__logo {
+      font-weight: 700;
+      color: #000;
+      font-size: 24px;
+      line-height: math.div(29, 24);
+   }
+}
+
+.menu {
+   flex: 0 1 420px;
+   &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+   }
+   &__sub-list {
+      position: relative;
+      background-color: $orangeColor;
+      padding: 15px;
+      flex: 1 1 100%;
+      min-width: 200px;
+      left: 0;
+      position: absolute;
+      top: 100%;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: all .3s ease 0s;
+      transform: translate(0px, 10px);
+   }
+   &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 3px;
+      padding: 5px 0;
+      position: relative;
+      @media (any-hover: hover) {
+         &:hover {
+            .menu__sub-list {
+               transform: translate(0px, 0px);
+               opacity: 1;
+               visibility: visible;
+               pointer-events: auto;
+            }
+            .menu__arrow {
+               transform: rotate(-180deg);
+            }
+            .menu__arrow,
+            .menu__link {
+               color: $orangeColor;
+            }
+         }
+      }
+   }
+   &__link {
+      font-weight: 500;
+      color: inherit;
+      transition: color .3s ease 0s;
+   }
+   &__arrow {
+      margin-left: 8px;
+      transition: all .3s ease;
+      font-size: 8px;
+   }
+   &__sub-item {
+      &:not(:last-child) {
+         margin-bottom: 5px;
+      }
+   }
+   &__sub-link {
+      color: #fff;
+      line-height: 100%;
+   }
+}
