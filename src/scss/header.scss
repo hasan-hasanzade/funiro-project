@@ -35,9 +35,6 @@
 		top: 0;
 		z-index: 50;
 	}
-	// .header__container
-	&__container {
-	}
 	// .header__body
 	&__body {
 		transition: min-height 0.3s ease 0s;
@@ -71,9 +68,7 @@
 		z-index: 5;
 		line-height: math.div(29, 24) * 100%;
 	}
-	// .header__menu
-	&__menu {
-	}
+
 	// .header__search
 	&__search {
 		@include adaptiveValue("padding-right", 32, 15, 1);
@@ -82,8 +77,7 @@
 		}
 	}
 	// .header__actions
-	&__actions {
-	}
+
 }
 .menu {
 	flex: 0 1 420px;
@@ -386,8 +380,7 @@
 		}
 	}
 	// .cart-header__list
-	&__list {
-	}
+
 }
 .cart-list {
 	overflow: auto;

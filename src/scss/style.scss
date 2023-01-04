@@ -10,9 +10,10 @@ $grayColor: #898989;
 $darkGrayColor: #616161;
 
 
-@import "./mixins.scss";
+@import "./mixins";
 @import "./fonts";
 @import "./icons";
+
 
 
 
@@ -45,7 +46,6 @@ $mobileSmall: em(479.98); // Телефоны S
 @import "./null.scss";
 
 body {
-	background-color: antiquewhite;
 	color: $mainColor;
 	&._lock {
 		overflow: hidden;
@@ -53,7 +53,26 @@ body {
 }
 
 
-
+.btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0px 15px;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+	min-height: 48px;
+	// .btn_white
+	&_white {
+		color: $orangeColor;
+		background-color: #fff;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $orangeColor;
+				color: #fff;
+			}
+		}
+	}
+}
 
 // Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 .wrapper {
@@ -116,7 +135,93 @@ body {
 	flex: 1 1 auto;
 }
 
-// Header
+// Main Slider
+
+.main-slider {
+	background-color: #fcf8f3;
+	&__container {
+		position: relative;
+		@media (min-width: $tablet) {
+			&::before {
+				content: "";
+				background-color: #f9f1e7;
+				position: absolute;
+				top: 0;
+				width: 100vw;
+				right: 376px;
+				height: 100%;
+
+			}
+		}
+	}
+	&__body {
+		padding-top: 140px;
+		position: relative;
+		z-index: 2;
+		@media (max-width: $tablet) {
+			padding-top: 80px;
+		}
+		@media (max-width: $mobile) {
+			padding-top: 50px;
+		}
+		@media (min-width: $tablet) {
+			display: flex;
+		}
+	}
+	&__content {
+		flex: 0 0 math.div(494, 1240) * 100%;
+	}
+	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+}
+.content-main {
+	position: relative;
+	z-index: 5;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: rgba(255, 255, 255, 0.72);
+	@include adaptiveValue("padding-top", 60, 15, 1);
+	@include adaptiveValue("padding-bottom", 60, 15, 1);
+	@media (min-width: $tablet) {
+		@include adaptiveValue("padding", 60, 1, 1);
+		background-color: rgba(255, 255, 255, 0.9);
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+			background: rgba(255, 255, 255, 0.72);
+			backdrop-filter: blur(31px);
+		}
+	}
+	&__title {
+		@include adaptiveValue("font-size", 56, 24, 1);
+		font-weight: 700;
+		line-height: 120%;
+		&:not(:last-child) {
+			margin: 0 0 math.div(16px, 56px) * 1em 0px;
+		}
+	}
+	&__text {
+		@include adaptiveValue("font-size", 20, 16, 1);
+		color: $grayColor;
+		line-height: 150%;
+		&:not(:last-child) {
+			margin: 0 0 math.div(48px, 20px) * 1em 0px;
+		}
+	}
+	&__button {
+		font-weight: 600;
+		@include adaptiveValue("min-height", 78, 45, 1);
+		@include adaptiveValue("font-size", 20, 16, 1);
+		background-color: $orangeColor;
+		color: #fff;
+		width: 100%;
+		@media (any-hover: hover) {
+			&:hover {
+				background: #966749;
+			}
+		}
+	}
+}
 
 @import "./header.scss";
 @import "./footer.scss";
