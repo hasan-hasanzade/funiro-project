@@ -45,6 +45,7 @@ $mobileSmall: em(479.98); // Телефоны S
 @import "./null.scss";
 
 body {
+	background-color: antiquewhite;
 	color: $mainColor;
 	&._lock {
 		overflow: hidden;
@@ -111,7 +112,13 @@ body {
 	}
 }
 
+.page {
+	flex: 1 1 auto;
+}
+
 // Header
 
 @import "./header.scss";
+@import "./footer.scss";
+@import "./ui.scss";
 

@@ -1,0 +1,6 @@
+._footer-title {
+   @include adaptiveValue ("font-size", 21, 20, 1);
+   line-height: math.div(29, 24);
+   color: #000;
+   font-weight: 700;
+}
